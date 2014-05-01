@@ -46,3 +46,5 @@ datadf <- suppressWarnings(do.call(smartbind, datalist)) #Supress warnings.
 datadf_main <- read.csv(filenames[1], sep=',', header=TRUE)
 mergedf <- merge(datadf_main, datadf, by.x='KEY', by.y='V15', all.x=TRUE)
 
+# Dump the files into a .csv file for analysis. 
+
