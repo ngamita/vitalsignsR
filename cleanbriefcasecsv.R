@@ -7,7 +7,10 @@
 
 # Author: 'ngamita@gmail.com' Richard Ngamita. 
 
-filenames=list.files(path=mypath, pattern="*.csv", full.names=TRUE)
+# Ask user: File path. 
+# mypath <- choose.dir()
+
+filenames=list.files(path='./Eplot3/', pattern="*.csv", full.names=TRUE)
 
 # Select all similar files, leave main file. 
 # TODO: Richard Ngamita: Fix this with RegEx
@@ -46,5 +49,9 @@ datadf <- suppressWarnings(do.call(smartbind, datalist)) #Supress warnings.
 datadf_main <- read.csv(filenames[1], sep=',', header=TRUE)
 mergedf <- merge(datadf_main, datadf, by.x='KEY', by.y='V15', all.x=TRUE)
 
-# Dump the files into a .csv file for analysis. 
+# Dump the files into a .csv file for analysis.
+# TODO: Rename it accordingly to original file name.
+# WOrks for **nix machines. 
+write.csv(mergedf, file ="clean_csv.csv",row.names=FALSE)
+
 
