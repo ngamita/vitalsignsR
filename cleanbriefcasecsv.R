@@ -8,9 +8,9 @@
 # Author: 'ngamita@gmail.com' Richard Ngamita. 
 
 # Ask user: File path. 
-# mypath <- choose.dir()
+# Or let user put script in cwd. 
 
-filenames=list.files(path='./Eplot3/', pattern="*.csv", full.names=TRUE)
+filenames=list.files(path='.', pattern="*.csv", full.names=TRUE)
 
 # Select all similar files, leave main file. 
 # TODO: Richard Ngamita: Fix this with RegEx
@@ -51,7 +51,7 @@ mergedf <- merge(datadf_main, datadf, by.x='KEY', by.y='V15', all.x=TRUE)
 
 # Dump the files into a .csv file for analysis.
 # TODO: Rename it accordingly to original file name.
-# WOrks for **nix machines. 
+# WOrks for **nix machines. (Linux and Mac), not Windows tested.
 write.csv(mergedf, file ="clean_csv.csv",row.names=FALSE)
 
 
